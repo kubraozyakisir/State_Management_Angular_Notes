@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CountService } from 'src/app/services/count.service';
 
 @Component({
   selector: 'app-add-count',
@@ -7,14 +8,19 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AddCountComponent implements OnInit{
 
-  number:number =0;
-  @Output() myEvent = new EventEmitter<any>();
+  // number:number =0;
+  // @Output() myEvent = new EventEmitter<any>();
+
+  constructor(
+    private _count: CountService
+  ){}
 
     ngOnInit(): void {
-      throw new Error('Method not implemented.');
+
     }
    AddCount(){
-    this.number +=1;
-    this.myEvent.emit(this.number);
+    this._count.number+=1;
+   // this.number +=1;
+   // this.myEvent.emit(this.number);
    }
 }

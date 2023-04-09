@@ -7,12 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
 
-  @Input() number : number =0;
+ // @Input() number : number =0;
 
   ngOnInit(): void {
   }
 
-  addCount(event:number){
-    this.number = event;
-  }
+  // addCount(event:number){
+  //   this.number = event;
+  // }
 }
