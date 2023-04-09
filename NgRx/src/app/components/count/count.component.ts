@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { CountService } from 'src/app/services/count.service';
 
 @Component({
@@ -8,9 +10,18 @@ import { CountService } from 'src/app/services/count.service';
 })
 export class CountComponent implements OnInit {
  // @Input() number : number =0;
-  constructor(
-    public _count :CountService
-  ){}
-    ngOnInit(): void {
+
+ number$:Observable<number>;
+
+ constructor(
+    //public _count :CountService  2.
+    private store : Store<{number:number}>
+  ){
+    this.number$=this.store.select("number");
+  }
+
+
+
+  ngOnInit(): void {
    }
 }
